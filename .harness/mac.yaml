@@ -32,4 +32,8 @@ pipeline:
                   identifier: hello
                   spec:
                     shell: Sh
-                    command: echo hello
+                    command: |-
+                      echo hello
+                      git reset --hard HEAD
+                      git clean -ffdx
+                      git pull
