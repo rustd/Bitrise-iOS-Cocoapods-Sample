@@ -1,0 +1,35 @@
+pipeline:
+  name: mac
+  identifier: mac
+  projectIdentifier: pranavt1
+  orgIdentifier: default
+  tags: {}
+  properties:
+    ci:
+      codebase:
+        connectorRef: pranavgithub
+        repoName: Bitrise-iOS-Cocoapods-Sample
+        build: <+input>
+  stages:
+    - stage:
+        name: build
+        identifier: build
+        description: ""
+        type: CI
+        spec:
+          cloneCodebase: true
+          platform:
+            os: MacOS
+            arch: Arm64
+          runtime:
+            type: Cloud
+            spec: {}
+          execution:
+            steps:
+              - step:
+                  type: Run
+                  name: hello
+                  identifier: hello
+                  spec:
+                    shell: Sh
+                    command: echo hello
